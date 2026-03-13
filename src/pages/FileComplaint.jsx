@@ -40,7 +40,7 @@ function FileComplaint() {
 
     try {
 
-      const res = await API.post("/complaints/create", formData, {
+      const res = await API.post("/api/complaints/create", formData, {
         onUploadProgress: (progressEvent) => {
 
           const percent = Math.round(
