@@ -95,6 +95,7 @@ function AdminDashboard() {
           <option value="Security">Security</option>
           <option value="Technical">Technical</option>
           <option value="Catering">Catering</option>
+          <option value="General">General</option>
         </select>
       </div>
 
