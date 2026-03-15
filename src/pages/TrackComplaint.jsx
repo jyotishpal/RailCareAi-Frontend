@@ -14,7 +14,7 @@ function TrackComplaint() {
 
   const fetchComplaints = async () => {
     try {
-      const { data } = await API.get("/complaints/my");
+      const { data } = await API.get("/api/complaints/my");
       setComplaints(data);
     } catch (err) {
       console.error("Error fetching complaints", err);
@@ -23,7 +23,7 @@ function TrackComplaint() {
 
   const escalateComplaint = async (complaintId) => {
     try {
-      await API.put("/complaints/escalate", { complaintId });
+      await API.put("/api/complaints/escalate", { complaintId });
       alert("🚀 Escalated to Super Admin successfully!");
       fetchComplaints();
     } catch (err) {

@@ -34,19 +34,19 @@ function SuperAdminDashboard() {
 
   const fetchAnalytics = async () => {
     const region = await API.get(
-      `/superadmin/analytics/region?region=${selectedRegion}`
+      `/api/superadmin/analytics/region?region=${selectedRegion}`
     );
 
     const department = await API.get(
-      `/superadmin/analytics/department?region=${selectedRegion}`
+      `/api/superadmin/analytics/department?region=${selectedRegion}`
     );
 
     const priority = await API.get(
-      `/superadmin/analytics/priority?region=${selectedRegion}`
+      `/api/superadmin/analytics/priority?region=${selectedRegion}`
     );
 
     const resolution = await API.get(
-      `/superadmin/analytics/resolution-time?region=${selectedRegion}`
+      `/api/superadmin/analytics/resolution-time?region=${selectedRegion}`
     );
 
     setRegionData(region.data);
@@ -57,7 +57,7 @@ function SuperAdminDashboard() {
 
   const createAdmin = async () => {
     try {
-      await API.post("/superadmin/create-admin", adminForm);
+      await API.post("/api/superadmin/create-admin", adminForm);
       alert("Admin Created Successfully");
       setAdminForm({
         name: "",
@@ -75,7 +75,7 @@ function SuperAdminDashboard() {
     try {
       setProcessingId(id);
 
-      await API.put(`/superadmin/receive/${id}`);
+      await API.put(`/api/superadmin/receive/${id}`);
 
       setEscalatedComplaints(prev =>
         prev.map(c =>
@@ -96,7 +96,7 @@ function SuperAdminDashboard() {
     try {
       setProcessingId(id);
 
-      await API.put(`/superadmin/solve/${id}`);
+      await API.put(`/api/superadmin/solve/${id}`);
 
       // Remove from escalated list after solve
       setEscalatedComplaints(prev =>
@@ -122,7 +122,7 @@ function SuperAdminDashboard() {
       <button
         className="bg-red-600 text-white px-4 py-2 rounded mb-6"
         onClick={async () => {
-          const { data } = await API.get("/superadmin/escalated");
+          const { data } = await API.get("/api/superadmin/escalated");
           setEscalatedComplaints(data);
           setShowEscalated(true);
         }}

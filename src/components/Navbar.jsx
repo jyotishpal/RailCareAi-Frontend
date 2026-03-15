@@ -71,7 +71,7 @@ function Navbar() {
               to="/superadmin"
               className="text-gray-600 hover:text-blue-600 font-semibold transition no-underline"
             >
-              {t("superAdminPane")}
+              {t("superAdminPanel")}
             </Link>
           )}
 

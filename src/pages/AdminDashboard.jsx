@@ -8,11 +8,11 @@ function AdminDashboard() {
 
 
   const fetchComplaints = async () => {
-    const { data } = await API.get("/admin/complaints");
+    const { data } = await API.get("/api/admin/complaints");
     setComplaints(data);
   };
   const updateStatus = async (id, status) => {
-  await API.put(`/admin/update/${id}`, {
+  await API.put(`/api/admin/update/${id}`, {
     status,
     note: status,
   });
@@ -30,12 +30,12 @@ function AdminDashboard() {
   }, []);
 
   const acceptComplaint = async (id) => {
-    await API.put(`/admin/accept/${id}`);
+    await API.put(`/api/admin/accept/${id}`);
     fetchComplaints();
   };
 
   const closeComplaint = async (id) => {
-    await API.put(`/admin/close/${id}`);
+    await API.put(`/api/admin/close/${id}`);
     fetchComplaints();
   };
 
